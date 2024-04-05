@@ -31,25 +31,26 @@ int main(int argc, char* argv[]) {
             if (!strcmp("mul", argv[2])) {
                 result = number1 * number2;
                 printf("%d * %d = %d\n", number1, number2, result);
-            if (!strcmp("div", argv[2])) {
-                if (number2 != 0) {
-                    result = number1 / number2;
-                    printf("%d / %d = %d\n", number1, number2, result);
-                } else {
-                    if (number1 == 0) {
-                        printf("%d / %d = NaN\n", number1, number2);
-                    } else if (number1 > 0) {
-                        printf("%d / %d = +INF\n", number1, number2);
+                if (!strcmp("div", argv[2])) {
+                    if (number2 != 0) {
+                        result = number1 / number2;
+                        printf("%d / %d = %d\n", number1, number2, result);
                     } else {
-                        printf("%d / %d = -INF\n", number1, number2);
+                        if (number1 == 0) {
+                            printf("%d / %d = NaN\n", number1, number2);
+                        } else if (number1 > 0) {
+                            printf("%d / %d = +INF\n", number1, number2);
+                        } else {
+                            printf("%d / %d = -INF\n", number1, number2);
+                        }
                     }
+                    return 0;
                 }
-                return 0;
+
             }
+            usage(argv[0]);
 
+            return 0;
         }
-        usage(argv[0]);
-
-        return 0;
     }
 }
